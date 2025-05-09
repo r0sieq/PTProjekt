@@ -1,0 +1,92 @@
+main.auth {
+    flex-grow: 1;
+    overflow-y: scroll;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main.auth form {
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #050505;
+    color: white;
+    box-sizing: border-box;
+    padding: 50px;
+    align-items: center;
+    gap: 10px;
+}
+
+main.auth button {
+    padding: 7px;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: green;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 20px;
+    box-shadow: 0 0 50px -10px transparent;
+    transition: box-shadow 200ms ease-in-out;
+    cursor: pointer;
+}
+
+main.auth button:hover {
+    box-shadow: 0 0 50px -10px green;
+}
+
+
+main.auth .custom-input {
+    width: 100%;
+}
+
+main.auth input {
+    font-size: 20px;
+}
+
+div.alt {
+    color: #aaa;
+}
+
+main.auth a {
+    display: block;
+    color: white;
+    text-align: center;
+}
+
+@keyframes loading {
+    0% {
+        rotate: 0;
+    }
+    99.99999% {
+        rotate: 360deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+
+main.auth button[type="submit"] {
+    transition: opacity 200ms ease-in-out;
+}
+
+main.auth button[type="submit"] svg {
+    fill: white;
+    width: 1em;
+    display: inline-block;
+    animation: loading 1s linear infinite;
+}
+
+main.auth button[type="submit"]:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+main.auth .form-error {
+    color: darkred;
+    font-size: 18px;
+    margin-bottom: 20px;
+}

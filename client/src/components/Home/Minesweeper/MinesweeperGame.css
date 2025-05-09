@@ -1,0 +1,67 @@
+main.minesweeper .content .minesweeper-game {
+    flex-shrink: 0;
+    background-color: black;
+    flex-grow: 1;
+    aspect-ratio: 1/1;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+main.minesweeper .content .minesweeper-game[data-disabled="true"]{
+    pointer-events: none;
+}
+
+main.minesweeper .content .minesweeper-game .minesweeper-square {
+    border-radius: 15px;
+    background-color: #111;
+    box-sizing: border-box;
+    border-bottom: 5px solid #222;
+    font-size: 50px;
+    color: #aaa;
+    fill: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+@keyframes shake {
+    0% {
+        rotate: 0deg;
+    }
+    33% {
+        rotate: -10deg;
+    }
+    66% {
+        rotate: 10deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+
+main.minesweeper .content .minesweeper-game .minesweeper-square[data-content="empty"] {
+    background-color: #222;
+}
+
+main.minesweeper .content .minesweeper-game .minesweeper-square[data-content="mine"] {
+    background-color: darkred;
+    fill: white;
+}
+
+main.minesweeper .content .minesweeper-game .minesweeper-square[data-content="unknown"]:hover {
+    animation: shake 700ms ease-in-out 500ms;
+    color: white;
+    fill: white;
+}
+
+main.minesweeper .content .minesweeper-game .minesweeper-square svg {
+    height: 50px;
+    fill: inherit;
+}

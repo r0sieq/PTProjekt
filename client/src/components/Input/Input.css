@@ -1,0 +1,63 @@
+.custom-input {
+    width: auto;
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #111;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-input[data-state="error"] svg {
+    fill: red;
+}
+
+.custom-input[data-state="correct"] svg {
+    fill: yellowgreen;
+}
+
+.custom-input::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: var(--main-color);
+    transition: width 200ms ease-in-out;
+}
+
+.custom-input:has(input:focus)::after {
+    width: 100%;
+}
+
+.custom-input > input {
+    font-size: inherit;
+    border: none;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+}
+
+.custom-input > input{
+    padding-right: 35px;
+}
+
+.custom-input .input-state {
+    position: absolute;
+    height: 100%;
+    aspect-ratio: 1/1;
+    right: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-input .input-state svg {
+    width: 1em;
+    height: 1em;
+}

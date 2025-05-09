@@ -1,0 +1,138 @@
+div.playing-card {
+    width: 12em;
+    aspect-ratio: 2/3;
+    border-radius: 15px;
+    box-sizing: border-box;
+    height: fit-content;
+    overflow: hidden;
+    perspective: 1000px;
+    user-select: none;
+}
+
+div.playing-card .playing-card-content {
+    background-color: #fbfbfb;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: transform .5s ease;
+    transform-style: preserve-3d;
+}
+
+div.playing-card[data-revealed="false"] .playing-card-content {
+    transform: rotateY(0deg);
+    will-change: transform;
+}
+
+div.playing-card[data-revealed="true"] .playing-card-content {
+    transform: rotateY(180deg);
+}
+
+div.playing-card .playing-card-content > *:not(.playing-card-back) {
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+div.playing-card .playing-card-back {
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    padding: 5px;
+    background-color: lightcoral;
+}
+
+div.playing-card .playing-card-back .background {
+    background-image: url(../../../assets/cardbg2.png);
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.playing-card .playing-card-back .background .logo {
+    background-color: lightcoral;
+    width: fit-content;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(196, 0, 0);
+    font-weight: bold;
+}
+
+div.playing-card[data-color="diamond"], div.playing-card[data-color="heart"]{
+    color: rgb(196, 0, 0);
+    fill: rgb(196, 0, 0);
+}
+
+div.playing-card[data-color="spade"], div.playing-card[data-color="club"]{
+    color: #222;
+    fill: #222;
+}
+
+div.playing-card .playing-card-header {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    padding: 10px;
+}
+
+div.playing-card .playing-card-header.bottom {
+    rotate: -180deg;
+}
+
+div.playing-card .playing-card-header svg {
+    width: 1em;
+    display: block;
+}
+
+div.playing-card .shapes {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    place-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-block: 20px;
+}
+
+div.playing-card .shapes .section svg {
+    width: 35px;
+    fill: inherit;
+    display: block;
+}
+
+div.playing-card .shapes .section .special {
+    margin: 0 auto;
+    font-size: 70px;
+}
+
+div.playing-card .shapes svg:only-child {
+    margin: 0 auto;
+}
+
+div.playing-card .shapes .section {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    place-content: space-between;
+}
+
+div.playing-card .shapes .section[data-reverse="true"] {
+    rotate: -180deg;
+}

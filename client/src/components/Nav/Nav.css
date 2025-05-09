@@ -1,0 +1,138 @@
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    box-sizing: border-box;
+    background-image: linear-gradient(135deg, black, #333);
+    color: white;
+    align-items: center;
+    padding-inline: max(calc((100vw - 1200px) / 2), 50px);
+}
+
+header nav {
+    display: flex;
+    flex-direction: row;
+    margin-right: auto;
+    gap: 10px;
+    font-size: 1em;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    padding: 15px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+header nav a span {
+    z-index: 10;
+    color: #aaa;
+}
+
+header nav a::before {
+    position: absolute;
+    content: "";
+    height: 50%;
+    aspect-ratio: 1/1;
+    scale: 0;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out, scale 200ms ease-in-out;
+}
+
+header nav a[data-active="true"] span {
+    color: white;
+    font-weight: bold;
+}
+
+header nav a[data-active="true"]::before {
+    content: "";
+    background-image: url(../../assets/token.png);
+    background-position: center;
+    background-size: 100%;
+    position: absolute;
+    aspect-ratio: 1/1;
+    z-index: 0;
+    scale: 1;
+    opacity: .3;
+    pointer-events: none;
+}
+
+header .balance {
+    box-sizing: border-box;
+    padding-left: 15px;
+    background-color: #333;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: .25em;
+    overflow: hidden;
+}
+
+header .balance button {
+    margin-left: 10px;
+    background-color: green;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+header .balance button svg {
+    fill: yellowgreen;
+    width: 1em;
+    height: 1em;
+    display: block;
+}
+
+@keyframes balance-changing {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+header .balance .number {
+    color: gold;
+    animation: balance-changing 300ms ease-in-out;
+}
+
+header .balance .number::after {
+    margin-left: 5px;
+    content: "";
+    display: inline-block;
+    width: 1em;
+    aspect-ratio: 1/1;
+    background-image: url(../../assets/token.png);
+    background-size: 100%;
+    background-position: center;
+}
+
+header .account a {
+    color: white;
+    text-decoration: none;
+    padding-inline: 15px;
+}
+
+header .account a svg {
+    width: 1em;
+    height: 1em;
+    fill: white;
+    display: inline-block;
+}
+
+header .loading svg {
+    display: block;
+    width: 21px;
+    fill: white;
+    animation: loading 1s linear infinite;
+}

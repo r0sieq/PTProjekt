@@ -1,0 +1,77 @@
+.stake-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stake-selector > .numeric {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+}
+
+.stake-selector > .controlls {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+.stake-selector button {
+    align-self: stretch;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.stake-selector .numeric button {
+    padding-inline: 15px;
+}
+
+.stake-selector .controlls button {
+    background-color: #222;
+    padding: 5px;
+    flex-grow: 1;
+    color: #ddd;
+    font-size: 15px;
+    transition: color 200ms ease-in-out, background-color 200ms ease-in-out;
+}
+
+.stake-selector .controlls button:hover {
+    color: white;
+    background-color: #333;
+}
+
+.stake-selector button:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.stake-selector button.inc {
+    background-color: green;
+}
+
+.stake-selector button.dec {
+    background-color: darkred;
+}
+
+.stake-selector input {
+    flex-grow: 1;
+    width: 4em;
+    background-color: #111;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

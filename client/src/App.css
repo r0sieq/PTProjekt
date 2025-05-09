@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100dvh;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+:root {
+    --loading: loading 1s linear infinite;
+}
+
+* {
+    font-family: Satoshi;
+}
+
+main {
+    flex-grow: 1;
+    overflow-y: scroll;
+    background-color: #111;
+    position: relative;
+}
+
+main a.primary, main a.secondary, main button.primary, main button.secondary {
+    text-decoration: none;
+    color: inherit;
+    padding: 15px 30px;
+    border-width: 1px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+main a.primary, main button.primary {
+    background-color: green;
+    box-shadow: 0 0 0px 0px transparent;
+    transition: box-shadow 200ms ease-in-out;
+}
+
+main a.secondary, main button.secondary {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+main a.secondary, main button.secondary:hover {
+    font-weight: bold;
+}
+
+main button.primary:hover {
+    box-shadow: 0 0 60px -5px green;
+}
+
+@keyframes loading {
+    0% {
+        rotate: 0;
+    }
+    99.999% {
+        rotate: 360deg;
+    }
+    100% {
+        rotate: 0;
+    }
+}
+
+img.token-icon {
+    width: .8em;
+    display: inline-block;
+}
+
+svg.loading {
+    animation: var(--loading);
+    display: inline-block;
+    width: 1em;
+}

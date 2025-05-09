@@ -1,0 +1,10 @@
+
+section.miniprofile {
+    height: auto;
+    grid-area: account;
+}
+
+section.miniprofile .wrapper {
+    background-color: #050505;
+    height: 100%;
+}
