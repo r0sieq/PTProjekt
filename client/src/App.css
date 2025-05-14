@@ -31,7 +31,8 @@ main a.primary, main a.secondary, main button.primary, main button.secondary {
     text-decoration: none;
     color: inherit;
     padding: 15px 30px;
-    border-width: 1px;
+    border: none;
+    outline: none;
     border-radius: 10px;
     font-size: 20px;
 }

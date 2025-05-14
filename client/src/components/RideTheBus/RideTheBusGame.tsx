@@ -18,7 +18,7 @@ export default function RideTheBusGame(props: RideTheBusGameProps){
     useEffect(() => {
         if(!id) return void props.setGame(Api.Ridethebus.DEFAULT_GAMESTATE);
         Api.authToken().then(async headers => {
-            const res = await fetch(`http://localhost:3000/game/ridethebus/getgame`, { 
+            const res = await fetch(`${Api.URL}/game/ridethebus/getgame`, { 
                 headers,
                 method: "POST",
                 body: JSON.stringify({

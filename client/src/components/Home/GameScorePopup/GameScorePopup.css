@@ -84,3 +84,30 @@
     color: #777;
     text-align: center;
 }
+
+@media (max-width: 700px) {
+    .game-popup-container {
+        box-sizing: border-box;
+        padding: 50px;
+    }
+
+    .game-popup-window {
+        width: 100%;
+    }
+
+    .game-popup-window .main {
+        padding-block: 50px;
+        padding-inline: 20px;
+    }
+
+    .game-popup-window .main h1 {
+        font-size: 40px;
+        margin-bottom: -10px;
+    }
+
+    .game-popup-window .buttons > * {
+        padding-block: 10px;
+    }
+
+    
+}

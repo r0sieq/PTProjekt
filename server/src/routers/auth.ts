@@ -15,9 +15,9 @@ router.post("/signup", async (req, res) => {
             res.status(201).json(user);
         } catch(error) {
             console.error("Signing up error.", error);
-            res.status(500).json({error})
+            return void res.status(500).json({error})
         }
-        res.status(200).json({ok: true});
+        return void res.status(200).json({ok: true});
     } else return void res.status(400).json({ error: "Unexpected error." });
 })
 

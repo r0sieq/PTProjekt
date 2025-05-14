@@ -8,6 +8,8 @@ import useWallet from '../../hooks/useWallet';
 
 export default function Nav(){
 
+    const [navActive, setNavActive] = useState<boolean>(false);
+
     const [loading, setLoading] = useState<boolean>(true);
     const {balance, setBalance} = useWallet();
     const [signedIn, setSignedIn] = useState<boolean>(false);
@@ -15,21 +17,24 @@ export default function Nav(){
     const location = useLocation();
 
     useEffect(() => {
+        setLoading(true);
         Api.getBasicUserData().then(data => {
-            setLoading(false);
             if(data?.balance){
                 setBalance(data.balance);
                 setSignedIn(true);
-            }
+            } else setSignedIn(false);
             setLoading(false);
         });
-    }, [location.pathname])
+    }, [location.pathname, location.key])
 
     return (
-        <header>
-            <nav>
+        <header data-active={navActive}>
+            <button className='nav-toggle' onClick={() => setNavActive(current => !current)}>
+                <Icon.Burger />
+            </button>
+            <nav onClick={() => setNavActive(false)}>
                 <NavLink to="/">
-                    PLAY
+                    HOME
                 </NavLink>
                 <NavLink to="/roulette">
                     ROULETTE

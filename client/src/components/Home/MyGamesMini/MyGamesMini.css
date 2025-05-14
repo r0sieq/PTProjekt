@@ -1,0 +1,103 @@
+.mygames-mini {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.mygames-mini h2 {
+    color: white;
+    padding-inline: 25px;
+    font-weight: normal;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.mygames-mini h2 button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.mygames-mini h2 button svg {
+    display: block;
+    fill: #aaa;
+    width: 20px;
+    transition: fill 200ms ease-in-out;
+}
+
+.mygames-mini h2 button:hover svg {
+    fill: white;
+}
+
+.mygames-mini[data-loading="true"] h2 button:hover svg {
+    fill: white;
+    animation: loading 200ms linear infinite;
+}
+
+.mygames-mini .games {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transition: opacity 300ms ease-in-out;
+}
+
+.mygames-mini[data-loading="true"] .games {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.mygames-mini button.expand {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #aaa;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: transparent;
+    width: fit-content;
+    margin: 5px auto;
+    border-radius: 10px;
+    transition: 200ms ease-in-out;
+}
+
+.mygames-mini button.expand:hover {
+    color: white;
+}
+
+.mygames-mini button.expand:disabled {
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+.mygames-mini .empty {
+    padding: 25px;
+    border-radius: 15px;
+    font-size: 20px;
+    color: #aaa;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #080808;
+}
+
+@media (max-width: 700px){
+    .mygames-mini h2 {
+        padding-inline: 15px;
+        font-weight: normal;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .mygames-mini button.expand {
+        padding: 10px;
+    }
+
+}

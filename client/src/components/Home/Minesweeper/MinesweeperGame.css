@@ -65,3 +65,28 @@ main.minesweeper .content .minesweeper-game .minesweeper-square svg {
     height: 50px;
     fill: inherit;
 }
+
+@media (max-width: 1000px){
+    main.minesweeper .content .minesweeper-game {
+        flex-shrink: 0;
+        background-color: black;
+        flex-grow: 1;
+        aspect-ratio: 1/1;
+        border-radius: 15px;
+        box-sizing: border-box;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        gap: 5px;
+        width: 100%;
+    }
+
+    main.minesweeper .content .minesweeper-game .minesweeper-square {
+        border-radius: 10px;
+        background-color: #111;
+        box-sizing: border-box;
+        border-bottom: 5px solid #222;
+        font-size: 30px;
+    }
+}

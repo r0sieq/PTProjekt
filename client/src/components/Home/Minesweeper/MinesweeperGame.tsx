@@ -19,7 +19,7 @@ export default function MinesweeperGame(props: MinesweeperGameProps){
 
     async function handleReveal(index: number){
         const headers = await Api.authToken();
-        const res = await fetch(`http://localhost:3000/game/minesweeper/reveal`, {
+        const res = await fetch(`${Api.URL}/game/minesweeper/reveal`, {
             headers,
             method: "POST",
             body: JSON.stringify({
@@ -37,7 +37,7 @@ export default function MinesweeperGame(props: MinesweeperGameProps){
     useEffect(() => {
         if(!id) return void props.setGame(Api.Minesweeper.DEFAULT_GAMESTATE);
         Api.authToken().then(async headers => {
-            const res = await fetch(`http://localhost:3000/game/minesweeper/getgame`, { 
+            const res = await fetch(`${Api.URL}/game/minesweeper/getgame`, { 
                 headers,
                 method: "POST",
                 body: JSON.stringify({

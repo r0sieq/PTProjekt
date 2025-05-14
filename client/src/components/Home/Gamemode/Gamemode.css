@@ -11,3 +11,8 @@ main .gamemode .wrapper {
     background-image: linear-gradient(135deg, black, rgba(0, 0, 0, 0.502));
 }
 
+@media (max-width: 700px){
+    main .gamemode .wrapper {
+        background-image: linear-gradient(135deg, black, rgba(0, 0, 0, 0.8));
+    }
+}

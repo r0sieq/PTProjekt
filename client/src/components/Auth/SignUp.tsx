@@ -1,16 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
-import Api from "../../api";
+import { Link  } from "react-router-dom";
 import Icon from "../../Icon";
 import Input from "../Input/Input";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 export default function SignUp(){
 
-    const nameRef = useRef<HTMLInputElement>(null);
-    const emailRef = useRef<HTMLInputElement>(null);
-    const passwordRef = useRef<HTMLInputElement>(null);
-    const repeatPasswordRef = useRef<HTMLInputElement>(null);
-    const navigate = useNavigate();
 
     const [isLoading, setLoading] = useState<boolean>(false);
     const [isError, setError] = useState<boolean>(false);

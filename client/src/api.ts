@@ -3,6 +3,10 @@ import { auth } from "./firebase";
 
 namespace Api {
     
+    export const URL = "https://api-ue2hpd3waa-uc.a.run.app"
+    //export const URL = window.location.host === "192.168.8.100:5173" ? "http://192.168.8.100:3000" : "http://localhost:3000";
+    //export const URL = "/api"
+
     export async function authToken(){
         const user = auth.currentUser;
         const token = await user?.getIdToken();
@@ -22,16 +26,21 @@ namespace Api {
         }
     }
 
+    export async function signOut(){
+        await auth.signOut();
+        localStorage.removeItem("token");
+    }
+
     export interface UserData {
-        readonly id: string,
+        readonly uid: string,
         readonly balance: number,
-        readonly name: string
+        readonly displayName: string
     }
 
     export async function getBasicUserData(){
         try {
             const headers = await authToken();
-            const res = await fetch(`http://localhost:3000/auth/me`, { headers });
+            const res = await fetch(`${Api.URL}/auth/me`, { headers });
             if(!res.ok) return null;
             const data = await res.json();
             if("error" in data) return null;
@@ -45,6 +54,17 @@ namespace Api {
         readonly gameId: string,
         readonly balance: number
     }
+
+    export interface Game {
+        id: string,
+        name: string,
+        game: {
+            stake: number,
+            active: boolean,
+            lastAction: number
+        }
+    }
+        
 
     export namespace Ridethebus {
         
@@ -67,7 +87,7 @@ namespace Api {
         export async function createGame(stake: number){
             try {
                 const headers = await authToken();
-                const res = await fetch(`http://localhost:3000/game/ridethebus/start`, { 
+                const res = await fetch(`${Api.URL}/game/ridethebus/start`, { 
                     headers,
                     method: "POST",
                     body: JSON.stringify({
@@ -107,7 +127,7 @@ namespace Api {
             console.log(stake, mines)
             try {
                 const headers = await authToken();
-                const res = await fetch(`http://localhost:3000/game/minesweeper/start`, { 
+                const res = await fetch(`${Api.URL}/game/minesweeper/start`, { 
                     headers,
                     method: "POST",
                     body: JSON.stringify({

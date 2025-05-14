@@ -26,7 +26,7 @@ export default function RideTheBusToolbar(props: RideTheBusToolbarProps){
         }
         setActionLoading(true);
         const headers = await Api.authToken();
-        const res = await fetch("http://localhost:3000/game/ridethebus/cashout", {
+        const res = await fetch(`${Api.URL}/game/ridethebus/cashout`, {
             headers,
             method: "POST",
             body: JSON.stringify({gameId: id})

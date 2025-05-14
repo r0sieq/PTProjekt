@@ -1,0 +1,141 @@
+div.game-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: black;
+    border-radius: 15px;
+    place-content: space-between;
+    overflow: hidden;
+    gap: 20px;
+}
+
+@keyframes deleted-game {
+    0% {
+        max-height: 100px;
+        opacity: 1
+    }
+    100% {
+        opacity: 0;
+        max-height: 0;
+        background-color: red;
+        padding: 0;
+    }
+}
+
+div.game-info[data-deleted="true"]{
+    animation: deleted-game 200ms ease-in-out forwards;
+}
+
+div.game-info .mode {
+    text-transform: capitalize;
+    color: white;
+    width: 30%;
+}
+
+div.game-info .mode::before {
+    color: #aaa;
+    content: "Gamemode: ";
+}
+
+div.game-info .details {
+    row-gap: 0;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    flex-wrap: wrap;
+    width: 50%;
+}
+
+div.game-info .details .date {
+    color: #aaa;
+}
+
+div.game-info .details .stake {
+    color: white;
+}
+
+div.game-info .action {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    align-items: center;
+}
+
+div.game-info .action button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    fill: white;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 200ms ease-in-out, background-color 200ms ease-in-out;
+    box-shadow: 0 0 0 0 transparent;
+    background-color: transparent;
+}
+
+@media (min-width: 700px){ 
+    div.game-info:hover .action button:first-child { background-color: green }
+    div.game-info .action button:first-child:hover { box-shadow: 0 0 100px 0px green }
+    
+    div.game-info:hover .action button:last-child { background-color: darkred }
+    div.game-info .action button:last-child:hover { box-shadow: 0 0 100px -5px red }
+
+    div.game-info:hover .action button .label {
+        max-width: 100px;
+    }
+}
+
+div.game-info .action button svg {
+    height: 15px;
+    display: block;
+    width: 20px;
+}
+
+div.game-info .action button .label {
+    box-sizing: border-box;
+    overflow: hidden;
+    max-width: 0;
+    transition: max-width 200ms ease-in-out;
+}
+
+
+
+@media (max-width: 700px){
+
+    div.game-info {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        color: white;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: black;
+        border-radius: 10px;
+        place-content: space-between;
+        overflow: hidden;
+    }
+
+    div.game-info .action {
+        gap: 10px;
+    }
+
+    div.game-info .action button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0px;
+        fill: white;
+        color: white;
+        background-color: transparent;
+    }
+}

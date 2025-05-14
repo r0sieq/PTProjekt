@@ -24,7 +24,7 @@ export default function MinesweeperPrizes(props: MineSweeperPrizesProps){
         }
         setActionLoading(true);
         const headers = await Api.authToken();
-        const res = await fetch("http://localhost:3000/game/minesweeper/cashout", {
+        const res = await fetch(`${Api.URL}/game/minesweeper/cashout`, {
             headers,
             method: "POST",
             body: JSON.stringify({
@@ -44,8 +44,10 @@ export default function MinesweeperPrizes(props: MineSweeperPrizesProps){
         <form className="minesweeper-prizes minesweeper-aside" onSubmit={handleSubmit}>
             <h1>Minesweeper</h1>
             <h2>Amount of mines: <span>{props.game.mines}</span></h2>
-            <h2>Stake: <span>{props.game.stake.toFixed(2)} <Icon.Token /></span></h2>
-            <h2>Prize: <span>{props.game.gameBalance.toFixed(2)} <Icon.Token /></span></h2>
+            <div className="row">
+                <h2>Stake: <span>{props.game.stake.toFixed(2)} <Icon.Token /></span></h2>
+                <h2>Prize: <span>{props.game.gameBalance.toFixed(2)} <Icon.Token /></span></h2>
+            </div>
             <MinesweeperMultipliersMap game={props.game}/>
             { props.game.revealedPositions.length === 0 || props.game.status !== "active" ?
                 <button className="secondary" type="submit" disabled={actionLoading}>

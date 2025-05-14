@@ -1,5 +1,4 @@
 import * as admin from 'firebase-admin';
-import { user } from 'firebase-functions/v1/auth';
 
 export async function registerUser(email: string, password: string, displayName: string){
     const user = await admin.auth().createUser({

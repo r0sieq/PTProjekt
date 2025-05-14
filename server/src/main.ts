@@ -21,6 +21,7 @@ import gameRouter from './routers/game';
 app.use("/game", gameRouter);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Listening on ${PORT}`));
 
 export default app;
 

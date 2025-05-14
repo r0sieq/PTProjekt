@@ -4,7 +4,120 @@ section.miniprofile {
     grid-area: account;
 }
 
-section.miniprofile .wrapper {
-    background-color: #050505;
-    height: 100%;
+section.miniprofile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+}
+
+section.miniprofile .user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+section.miniprofile .user .picture {
+    padding: 20px;
+    border-radius: 50%;
+    background-color: #222;
+}
+
+section.miniprofile .user .picture svg {
+    fill: #aaa;
+    width: 4em;
+    display: block;
+}
+
+section.miniprofile .user .info {
+    display: flex;
+    flex-direction: column;
+}
+
+section.miniprofile .user .info .pre {
+    color: #777;
+    margin-bottom: -10px;
+}
+
+section.miniprofile .user .info .name {
+    font-size: 40px;
+}
+
+section.miniprofile .user .info .balance {
+    font-size: 20px;
+    color: #aaa;
+    margin-top: -5px;
+}
+
+section.miniprofile .user .info .balance span {
+    color: gold;
+}
+
+section.miniprofile .action {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+section.miniprofile .action button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    gap: .5em;
+    font-size: 18px;
+}
+
+section.miniprofile .action button svg {
+    fill: white;
+    width: 1em;
+}
+
+@media (max-width: 700px) {
+    section.miniprofile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+
+    section.miniprofile .user {
+        width: 100%;
+        justify-content: center;
+    }
+
+    section.miniprofile .user .picture svg {
+        height: 3em;
+        width: 3em;
+    }
+
+    section.miniprofile .user .info .pre {
+        font-size: 15px;
+    }
+
+    section.miniprofile .user .info .name {
+        font-size: 27px;
+    }
+
+    section.miniprofile .user .info .balance {
+        font-size: 18px;
+    }
+
+
+
+    section.miniprofile .action {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        place-content: center;
+    }
+
+    section.miniprofile .action button {
+        justify-content: center;
+        padding: 5px 20px;
+    }
 }

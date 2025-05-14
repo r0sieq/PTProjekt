@@ -1,6 +1,5 @@
 import { useState } from "react";
 import CustomSlider from "../../CustomSlider/CustomSlider";
-import Input from "../../Input/Input";
 import StakeSelector from "../../StakeSelector/StakeSelector";
 import { MinesweeperSettingsData } from "./Minesweeper";
 

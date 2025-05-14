@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 export default function useHoldAction(action: () => void, delay = 100){
-    const intervalRef = useRef<number | null>(null);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const start = () => {
         action();

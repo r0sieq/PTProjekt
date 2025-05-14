@@ -31,7 +31,7 @@ export default function RideTheBusChoices(props: RideTheBusChoicesProps){
         console.log(props.id, choiceIndex)
         const headers = await Api.authToken();
         console.log("pobieranie stanu gry")
-        const res = await fetch("http://localhost:3000/game/ridethebus/placebet", {
+        const res = await fetch(`${Api.URL}/game/ridethebus/placebet`, {
             headers,
             method: "POST",
             body: JSON.stringify({

@@ -25,3 +25,9 @@ export interface RidethebusGame {
     readonly active: boolean,
     readonly lastAction: number,
 }
+
+export type Game = { 
+    name: "minesweeper", game: MinesweeperGame, id: string 
+} | {
+    name: "ridethebus", game: RidethebusGame, id: string
+}

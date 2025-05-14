@@ -161,3 +161,116 @@ main.minesweeper .content {
 .minesweeper-prizes .mines-steps .mine-step .text .desc {
     color: #aaa;
 }
+
+@media (max-width: 1300px){
+    main.minesweeper .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        color: white;
+        padding-block: 15px;
+        padding-inline: 15px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .minesweeper-aside {
+        background-color: black;
+        padding: 15px 15px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        gap: 10px;
+    }
+
+    .minesweeper-aside h1 {
+        margin: 0;
+        font-size: 25px;
+    }
+
+    .minesweeper-aside .mines-selector h2 {
+        font-size: 18px;
+    }
+
+    .minesweeper-aside .mines-selector .custom-slider {
+        margin-top: -5px;
+        cursor: default;
+    }
+
+    .minesweeper-aside .stake .stake-selector {
+        margin-top: -10px;
+    }
+
+    .minesweeper-aside button[type="submit"]{
+        margin-top: auto;
+        padding-block: 8px;
+    }
+
+    .minesweeper-prizes h2 {
+        margin-bottom: 0;
+    }
+
+    .minesweeper-prizes .row {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        place-content: space-evenly;
+    }
+
+    .minesweeper-prizes .mines-steps {
+        padding-block: 20px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-grow: 1;
+        box-sizing: border-box;
+    }
+
+    .minesweeper-prizes .mines-steps .mine-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        gap: 0px;
+        height: 100px;
+        text-align: center;
+    }
+
+    .minesweeper-prizes .mines-steps .mine-step:not(:last-child) .circle-container .circle {
+        align-items: center;
+        justify-content: unset;
+    }
+
+    .minesweeper-prizes .mines-steps .mine-step:not(:last-child) .circle-container .circle .line {
+        content: "";
+        height: 5px;
+        background-color: inherit;
+        width: calc(100%);
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        place-content: space-evenly;
+        top: unset;
+        left: calc(50%);
+    }
+
+    .minesweeper-prizes .mines-steps .mine-step:not(:last-child) .circle-container .circle .line:has(.minicircle){
+        background-color: transparent;
+        width: calc(100% - 2em);
+        background-color: #222;
+        left: calc(50% + 1em);
+    }
+
+    .minesweeper-prizes .mines-steps .mine-step:not(:last-child) .circle-container .circle .line .minicircle {
+        width: 15px;
+        aspect-ratio: 1/1;
+        background-color: #333;
+        border-radius: 50%;
+    }
+
+}

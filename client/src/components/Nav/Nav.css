@@ -136,3 +136,68 @@ header .loading svg {
     fill: white;
     animation: loading 1s linear infinite;
 }
+
+header .nav-toggle {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+header .nav-toggle svg {
+    fill: white;
+    width: 2em;
+    display: block;
+}
+
+@media (min-width: 1000px) {
+    header .nav-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    header {
+        position: relative;
+        box-sizing: border-box;
+        padding: 20px;
+        z-index: 1000;
+    }
+
+    header nav {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        flex-direction: column;
+        width: 100%;
+        z-index: 1000;
+        background-color: #111;
+        height: calc(100dvh - 100%);
+        box-sizing: border-box;
+        padding: 50px;
+        max-height: calc(100dvh - 100%);
+        overflow: hidden;
+        transition: max-height 200ms ease-in-out, padding 200ms ease-in-out;
+    }
+
+    header[data-active="false"] nav {
+        padding: 0;
+        max-height: 0;
+    }
+
+    header nav a {
+        font-size: 20px;
+    }
+
+    header nav a::before {
+        height: 75%;
+    }
+
+    header .balance {
+        margin-left: auto;
+    }
+    
+    header .loading {
+        margin-left: auto;
+    }
+
+}

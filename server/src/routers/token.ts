@@ -17,6 +17,7 @@ export default async function checkToken(req: Request, res: Response, next: Next
         next();
     } catch (e){
         console.log("Auth error!", e);
-        res.status(401).json({ error: "Invalid authorization token." }); 
+        return void res.status(401).json({ error: "Invalid authorization token." }); 
     }
+    return;
 }
