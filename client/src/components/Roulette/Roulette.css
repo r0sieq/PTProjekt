@@ -1,0 +1,150 @@
+main.roulette .content {
+    box-sizing: border-box;
+    padding: 50px;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+main.roulette .content .roulette-toolbar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    flex-grow: 1;
+}
+
+main.roulette .content .roulette-toolbar .top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.roulette .content .roulette-toolbar .top button {
+    cursor: pointer;
+    min-width: 200px;
+}
+
+main.roulette .content .roulette-toolbar .top button:disabled {
+    pointer-events: none;
+    opacity: .5;
+}
+
+main.roulette .content .roulette-toolbar .top button:hover {
+    fill: white;
+}
+
+main.roulette .content .roulette-toolbar .top .stake {
+    color: #aaa;
+    fill: #aaa;
+    display: flex;
+    flex-direction: row;
+    text-wrap: nowrap;
+    align-items: center;
+    gap: 5px;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+}
+
+
+main.roulette .content .roulette-toolbar .bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+main.roulette .content .roulette-toolbar .bottom .add-bet {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 10px;
+    gap: .4em;
+    color: white;
+    fill: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #eeeeee03;
+    cursor: pointer;
+    transition: background-color 200ms ease-in-out;
+}
+
+main.roulette .content .roulette-toolbar .bottom .add-bet:hover {
+    background-color: #eeeeee11;
+}
+
+main.roulette .content .roulette-toolbar .bottom .add-bet svg {
+    width: 1em;
+    height: 1em;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet {
+    background-color: black;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .name {
+    font-size: 20px;
+    margin-right: auto;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .multiplier {
+    color: #aaa;
+    width: 2ch;
+    text-align: right;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .stake {
+    color: gold;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .name .black { color: #aaa; }
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .name .red { color: red; }
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet .name .green { color: green; }
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet button {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet button svg {
+    width: 15px;
+    fill: #eee;
+    display: block;
+}
+
+main.roulette .content .roulette-toolbar .bottom .bets .placed-bet button:hover {
+    background-color: rgb(196, 0, 0);
+}

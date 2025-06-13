@@ -1,15 +1,17 @@
 body {
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 100vw;
+    overflow-x: hidden;
     height: 100dvh;
 }
 
 #root {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 :root {
@@ -27,7 +29,7 @@ main {
     position: relative;
 }
 
-main a.primary, main a.secondary, main button.primary, main button.secondary {
+a.primary, a.secondary, button.primary, button.secondary {
     text-decoration: none;
     color: inherit;
     padding: 15px 30px;
@@ -37,23 +39,23 @@ main a.primary, main a.secondary, main button.primary, main button.secondary {
     font-size: 20px;
 }
 
-main a.primary, main button.primary {
+a.primary, button.primary {
     background-color: green;
     box-shadow: 0 0 0px 0px transparent;
     transition: box-shadow 200ms ease-in-out;
 }
 
-main a.secondary, main button.secondary {
+a.secondary, button.secondary {
     background-color: transparent;
     border: none;
     outline: none;
 }
 
-main a.secondary, main button.secondary:hover {
+a.secondary, button.secondary:hover {
     font-weight: bold;
 }
 
-main button.primary:hover {
+button.primary:hover {
     box-shadow: 0 0 60px -5px green;
 }
 
@@ -78,4 +80,25 @@ svg.loading {
     animation: var(--loading);
     display: inline-block;
     width: 1em;
+}
+
+@media (min-width: 1000px) {
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: #1a1a1a;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: #444;
+        border-radius: 8px;
+        border: 2px solid #1a1a1a;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: #666;
+    }
 }

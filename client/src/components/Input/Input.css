@@ -7,6 +7,7 @@
     border-radius: 5px;
     position: relative;
     overflow: hidden;
+    transition: padding-top 200ms ease-in-out;
 }
 
 .custom-input[data-state="error"] svg {
@@ -46,18 +47,29 @@
     padding-right: 35px;
 }
 
-.custom-input .input-state {
-    position: absolute;
-    height: 100%;
-    aspect-ratio: 1/1;
-    right: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.custom-input:has(.input-feedback) {
+    padding-top: 20px;
 }
 
-.custom-input .input-state svg {
+.custom-input .input-feedback {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-inline: 10px;
+    gap: .5em;
+}
+
+.custom-input .input-feedback svg {
     width: 1em;
     height: 1em;
 }
+
+.custom-input .input-feedback {
+    width: max-content;
+    font-size: 1em;
+    color: red;
+}
+

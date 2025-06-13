@@ -1,0 +1,142 @@
+.roulette-bets-popup-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111CC;
+    backdrop-filter: blur(1px);
+    overflow: hidden;
+}
+
+.roulette-bets-popup-window {
+    animation: poping-up-bottom 500ms ease-in-out;
+    background-color: black;
+    border-radius: 15px;
+    box-shadow: 0 0 100px -20px black;
+    width: calc(100% - 20px);
+    max-width: 500px;
+}
+
+.roulette-bets-popup-window .top-bar {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    padding-block: 20px;
+    padding-inline: 30px 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #111;
+}
+
+.roulette-bets-popup-window .top-bar button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.roulette-bets-popup-window .top-bar button svg {
+    fill: #aaa;
+    width: 1em;
+    height: 1em;
+    display: block;
+    transition: fill 200ms ease-in-out;
+}
+
+.roulette-bets-popup-window .top-bar button:hover svg {
+    fill: white;
+}
+
+.roulette-bets-popup-window .bets {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 5px;
+}
+
+.roulette-bets-popup-window .bets .bet {
+    background-color: #111;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.roulette-bets-popup-window .bets .bet[data-visible="false"]{
+    display: none;
+}
+
+.roulette-bets-popup-window .bets .bet .head {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    place-content: space-between;
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.roulette-bets-popup-window .bets .bet .name {
+    color: white;
+    font-size: 18px;
+}
+
+.roulette-bets-popup-window .bets .bet .name .black { color: #aaa; }
+.roulette-bets-popup-window .bets .bet .name .red { color: red; }
+.roulette-bets-popup-window .bets .bet .name .green { color: green; }
+
+.roulette-bets-popup-window .bets .bet .multiplier {
+    color: #aaa;
+}
+
+.roulette-bets-popup-window .bets .bet .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: #ddd;
+    margin-top: 15px;
+}
+
+.roulette-bets-popup-window .bets .bet .buttons button {
+    font-size: 18px;
+    padding-block: 10px;
+    cursor: pointer;
+}
+
+@keyframes roulette-bet-form-showing-up {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 200px;
+        opacity: 1;
+    }
+}
+
+.roulette-bets-popup-window .bets .bet form {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 200ms ease-in-out, opacity 200ms ease-in-out, margin-top 200ms ease-in-out;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.roulette-bets-popup-window .bets .bet form[data-active="true"]{
+    max-height: 130px;
+    opacity: 1;
+    margin-top: 15px;
+}

@@ -1,5 +1,7 @@
 import express from 'express';
 import checkToken, { AuthorizedRequest } from './token';
+import { getUserReference } from '../utils';
+import { Game, MinesweeperGame, RidethebusGame } from '../types';
 
 const router = express.Router();
 
@@ -25,8 +27,9 @@ import minesweeperRouter from './games/minesweeper';
 router.use("/minesweeper", minesweeperRouter);
 
 import ridethebusRouter from './games/ridethebus';
-import { getUserReference } from '../utils';
-import { Game, MinesweeperGame, RidethebusGame } from '../types';
 router.use("/ridethebus", ridethebusRouter);
+
+import rouletteRouter from './games/roulette';
+router.use("/roulette", rouletteRouter);
 
 export default router;

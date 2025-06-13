@@ -3,29 +3,46 @@ import Gamemode from './Gamemode/Gamemode'
 import './Home.css'
 import Miniprofile from './Miniprofile/Miniprofile'
 import Api from '../../api'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import MyGamesMini from './MyGamesMini/MyGamesMini'
+import useGlobalError from '../../hooks/useGlobalError'
 
-export default function Home(){
+interface HomeProps {
+    setBalancePopup: React.Dispatch<React.SetStateAction<boolean>>
+}
 
+export default function Home(props: HomeProps){
+
+    const { addError } = useGlobalError()
     const [userData, setUserData] = useState<Api.UserData | null>(null);
 
     const location = useLocation();
 
     useEffect(() => {
-        Api.getBasicUserData().then(data => {
-            setUserData(data)
-        })
+        async function f(){
+            try {
+                const data = await Api.getBasicUserData();
+                setUserData(data);
+            } catch(err: any) {
+                addError((
+                    <>
+                        {err.message}
+                        <Link to="/auth">here</Link>
+                    </>
+                ), 15, err.message);
+            }
+        }
+        f()
     }, [location.pathname])
 
     return (
         <main className='home'>
             <div className="content">
-                {userData != null ? <Miniprofile userData={userData}/> : null}
+                {userData != null ? <Miniprofile userData={userData} setBalancePopup={props.setBalancePopup} /> : null}
                 {userData != null ? <MyGamesMini /> : null}
                 <h2>Classic gamemodes</h2>
                 <div className="row">
-                    <Gamemode title='Roulette' data-mode='roulette'>
+                    <Gamemode title='Roulette' data-mode='roulette' playURL='/roulette'>
                         Roulette is a casino game which was likely developed from the Italian game Biribi. In the game, a player may choose to place a bet on a single number, various groupings of numbers, the color red or black, whether the number is odd or even, or if the number is high or low.
                     </Gamemode>
                     <Gamemode title='Slot Machines' data-mode='slotmachines'>

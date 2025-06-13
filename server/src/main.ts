@@ -20,6 +20,9 @@ app.use("/auth", authRouter);
 import gameRouter from './routers/game';
 app.use("/game", gameRouter);
 
+import depositRouter from './routers/deposit';
+app.use("/deposit", depositRouter);
+
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 app.listen(PORT, '0.0.0.0', () => console.log(`Listening on ${PORT}`));
 

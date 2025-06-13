@@ -5,7 +5,6 @@ namespace Api {
     
     export const URL = "https://api-ue2hpd3waa-uc.a.run.app"
     //export const URL = window.location.host === "192.168.8.100:5173" ? "http://192.168.8.100:3000" : "http://localhost:3000";
-    //export const URL = "/api"
 
     export async function authToken(){
         const user = auth.currentUser;
@@ -46,7 +45,7 @@ namespace Api {
             if("error" in data) return null;
             return data as UserData;
         } catch {
-            return null;
+            throw new Error("Session has expired. Please sign in ") ;
         }
     }
 
@@ -96,9 +95,8 @@ namespace Api {
                 });
                 const data = await res.json() as GameCreationResponse;
                 return data;
-            } catch(error) {
-                console.warn(error)
-                return null;
+            } catch {
+                throw new Error("An error occurred while creating the game. Try again later.")
             }
         }
     }
@@ -137,10 +135,38 @@ namespace Api {
                 });
                 const data = await res.json() as GameCreationResponse;
                 return data;
-            } catch(error) {
-                console.warn(error)
-                return null;
+            } catch {
+                throw new Error("An error occurred while creating the game. Try again later.")
             }
+        }
+
+    }
+
+    export namespace Roulette {  
+
+        export type BetName = "onRed" | "onBlack" | "onGreen" | "onEven" | "onOdd" | "onSt12" | "onNd12" | "onRd12" | "onSt18" | "onNd18";
+
+        export type Bets = Record<BetName | number, number>;
+
+        export const DEFAULT_BETS: Bets = {
+            onRed: 0,
+            onBlack: 0,
+            onGreen: 0,
+            onEven: 0,
+            onOdd: 0,
+            onSt12: 0,
+            onNd12: 0,
+            onRd12: 0,
+            onSt18: 0,
+            onNd18: 0,
+        }
+
+        export interface GameState {
+            status: "won" | "lost",
+            gameId: string,
+            stake: number,
+            gameBalance: number,
+            number: number   
         }
 
     }

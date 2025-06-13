@@ -10,10 +10,12 @@ interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 
 export default function Input(props: InputProps){
 
+    const {error, ...rest} = props;
+
     return (
-        <div className="custom-input">
-            {props.error && <div className='input-feedback'><Icon.Check />{props.error}</div>}
-            <input type="text" {...props}/>
+        <div className="custom-input" data-state={typeof error === "string" ? "error" : null}>
+            {error && <div className='input-feedback'><Icon.Info />{error}</div>}
+            <input type="text" {...rest}/>
         </div>
     )
 }

@@ -1,6 +1,13 @@
 import { HTMLAttributes } from "react";
 
 import tokenIcon from './assets/token.png';
+import googleIcon from './assets/googlepay.png';
+import paypalIcon from './assets/paypal.png';
+import stripeIcon from './assets/stripe.png';
+
+import logoLight from './assets/logofinal_light.png';
+import logoDark from './assets/logofinal_dark.png';
+import logoLightFlipped from './assets/logofinal_flipped_light.png';
 
 namespace Icon {
     interface IconProps extends HTMLAttributes<HTMLOrSVGElement> {};
@@ -218,6 +225,24 @@ namespace Icon {
         )
     }
     
+    export function Gift(props: IconProps){
+        return (
+            <svg viewBox="0 0 24 24" {...props}>
+                <path d="M20,7H18.262A5.137,5.137,0,0,0,20,3a1,1,0,0,0-2,0c0,2.622-2.371,3.53-4.174,3.841A9.332,9.332,0,0,0,15,3,3,3,0,0,0,9,3a9.332,9.332,0,0,0,1.174,3.841C8.371,6.53,6,5.622,6,3A1,1,0,0,0,4,3,5.137,5.137,0,0,0,5.738,7H4a4,4,0,0,0-4,4v1a2,2,0,0,0,2,2v5a5.006,5.006,0,0,0,5,5H17a5.006,5.006,0,0,0,5-5V14a2,2,0,0,0,2-2V11A4,4,0,0,0,20,7ZM12,2a1,1,0,0,1,1,1,7.71,7.71,0,0,1-1,3.013A7.71,7.71,0,0,1,11,3,1,1,0,0,1,12,2ZM2,11A2,2,0,0,1,4,9h7v3H2Zm2,8V14h7v8H7A3,3,0,0,1,4,19Zm16,0a3,3,0,0,1-3,3H13V14h7Zm-7-7V9h7a2,2,0,0,1,2,2v1Z"/>
+            </svg>
+        )
+
+    }
+
+    export function Lock(props: IconProps){
+        return (
+            <svg viewBox="0 0 24 24" {...props}>
+                <path d="M19,8.424V7A7,7,0,0,0,5,7V8.424A5,5,0,0,0,2,13v6a5.006,5.006,0,0,0,5,5H17a5.006,5.006,0,0,0,5-5V13A5,5,0,0,0,19,8.424ZM7,7A5,5,0,0,1,17,7V8H7ZM20,19a3,3,0,0,1-3,3H7a3,3,0,0,1-3-3V13a3,3,0,0,1,3-3H17a3,3,0,0,1,3,3Z"/>
+                <path d="M12,14a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V15A1,1,0,0,0,12,14Z"/>
+            </svg>
+        )
+    }
+
     export namespace Card {
 
         export function Heart(props: IconProps){
@@ -254,6 +279,44 @@ namespace Icon {
 
     }
 
+    export namespace Logo {
+
+        export function Google(props: IconProps){
+            return (
+                <img src={googleIcon} {...props} className="logo-icon"></img>
+            )
+        }
+
+        export function Paypal(props: IconProps){
+            return (
+                <img src={paypalIcon} {...props} className="logo-icon"></img>
+            )
+        }
+
+        export function Stripe(props: IconProps){
+            return (
+                <img src={stripeIcon} {...props} className="logo-icon"></img>
+            )
+        }
+
+        export function Light(props: IconProps){
+            return (
+                <img src={logoLight} {...props} className="main-logo"></img>
+            )
+        }
+
+        export function LightFlipped(props: IconProps){
+            return (
+                <img src={logoLightFlipped} {...props} className="main-logo" />
+            )
+        }
+
+        export function Dark(props: IconProps){
+            return (
+                <img src={logoDark} {...props} className="main-logo"></img>
+            )
+        }
+    }
 
 
 

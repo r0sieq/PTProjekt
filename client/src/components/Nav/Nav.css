@@ -149,6 +149,14 @@ header .nav-toggle svg {
     display: block;
 }
 
+header img.main-logo {
+    margin-right: auto;
+    height: 2em;
+    display: block;
+    transform: translateY(-10%);
+    margin-left: 50px;
+}
+
 @media (min-width: 1000px) {
     header .nav-toggle {
         display: none;
@@ -200,4 +208,23 @@ header .nav-toggle svg {
         margin-left: auto;
     }
 
+    header img.main-logo {
+        margin-left: 15px;
+        margin-right: auto;
+        height: 2em;
+        display: block;
+    }
+
+}
+
+@media (max-width: 550px) {
+    header img.main-logo {
+        height: 1.5em;
+    }
+}
+
+@media (max-width: 429px) {
+    header img.main-logo {
+        height: 1em;
+    }
 }

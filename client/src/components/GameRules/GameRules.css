@@ -1,0 +1,34 @@
+main.rules {
+    color: white;
+}
+
+main.rules .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main.rules .content p {
+    padding-inline: 20px;
+}
+
+main.rules .content ol {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+main.rules .content h1 {
+    margin-bottom: 0;
+}
+
+main.rules .content h2 {
+    margin-bottom: 10px;
+}
+
+main.rules .content li div {
+    color: #ddd;
+}
+
+main.rules .content a.primary {
+    padding-inline: 50px;
+}

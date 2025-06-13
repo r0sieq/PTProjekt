@@ -1,0 +1,156 @@
+#balance-popup-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: none;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111EE;
+    backdrop-filter: blur(1px);
+    overflow: hidden;
+}
+
+#balance-popup-container:has(*){
+    pointer-events: all;
+    display: flex;
+}
+
+#balance-popup-container .balance-popup {
+    animation: poping-up-bottom 500ms ease-in-out;
+    background-color: #111;
+    border-radius: 20px;
+    box-shadow: 0 0 100px -20px black;
+    overflow: hidden;
+    min-width: 500px;
+    max-width: 800px;
+    width: 100%;
+}
+
+#balance-popup-container .balance-popup h1 {
+    color: white;
+    margin: 0;
+    padding-inline: 40px;
+    padding-block: 40px;
+    background-color: #0a0a0a;
+    display: flex;
+    flex-direction: row;
+    place-content: space-between;
+    align-items: center;
+}
+
+#balance-popup-container .balance-popup h1 button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    fill: white;
+    cursor: pointer;
+}
+
+#balance-popup-container .balance-popup h1 button svg {
+    width: 15px;
+}
+
+#balance-popup-container .balance-popup .popup-content {
+    display: flex;
+    flex-direction: row;
+}
+
+#balance-popup-container .balance-popup aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    gap: 5px;
+}
+
+#balance-popup-container .balance-popup aside button {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #111;
+    font-size: 20px;
+    color: #ddd;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+}
+
+#balance-popup-container .balance-popup aside button[data-locked="true"]{
+    color: #777;
+    background-color: #181818;
+}
+
+#balance-popup-container .balance-popup aside button img, #balance-popup-container .balance-popup aside button svg {
+    height: 1em;
+    aspect-ratio: 1/1;
+    display: block;
+    background-size: cover;
+    fill: #aaa;
+}
+
+#balance-popup-container .balance-popup aside button svg.lock {
+    margin-left: auto;
+}
+
+#balance-popup-container .balance-popup .main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 30px;
+    color: white;
+    gap: 20px;
+    min-height: 320px;
+}
+
+#balance-popup-container .balance-popup .main h2 {
+    color: #eee;
+    font-weight: normal;
+    margin: 0;
+}
+
+#balance-popup-container .balance-popup .custom-input {
+    background-color: #222;
+    width: 100%;
+}
+
+#balance-popup-container .balance-popup .main button {
+    padding-block: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5em;
+    fill: white;
+}
+
+#balance-popup-container .balance-popup .main button:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+#balance-popup-container .balance-popup .main h2.success {
+    color: white;
+}
+
+#balance-popup-container .balance-popup .main .message {
+    color: #aaa;
+}
+
+#balance-popup-container .balance-popup .main .value {
+    color: gold;
+}
+
+#balance-popup-container .balance-popup .main .buttons {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}

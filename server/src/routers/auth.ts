@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUser, registerUser } from '../utils';
+import { getUser, registerUser, validateEmail, validateName, validatePassword } from '../utils';
 import checkToken, { AuthorizedRequest } from './token';
 import { UserData } from '../types';
 
@@ -7,18 +7,19 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
     const body = req.body;
-    if(!body) 
-        return void res.status(400).json({ error: "Unexpected error." });
-    if("email" in body && "password" in body && "displayName" in body){
-        try {
-            const user = await registerUser(body.email, body.password, body.displayName);
-            res.status(201).json(user);
-        } catch(error) {
-            console.error("Signing up error.", error);
-            return void res.status(500).json({error})
-        }
-        return void res.status(200).json({ok: true});
-    } else return void res.status(400).json({ error: "Unexpected error." });
+        if(!validateEmail(body.email)) return void res.status(400).json({error: "Invalid email."});
+        if(!validateName(body.name)) return void res.status(400).json({error: "Invalid name."});
+        if(!validatePassword(body.password)) return void res.status(400).json({error: "Invalid password."});
+
+        
+    try {
+        const user = await registerUser(body.email, body.password, body.name);
+        res.status(201).json(user);
+    } catch(error: any) {
+        console.error("Signing up error.", error);
+        return void res.status(500).json({error: error.message})
+    }
+    return void res.status(200).json({ok: true});
 })
 
 router.get("/me", checkToken, async (req, res) => {

@@ -18,7 +18,14 @@ export default function StakeSelector(props: StakeSelectorProps){
     const decHold = useHoldAction(() => setValue(current => Math.max(0, current - 1)));
 
     function handleInput(e: React.FormEvent<HTMLInputElement>){
+
         let input = e.currentTarget.value.replace(",", "").replace(".", "");
+
+        if(input === "0k" || input === "0K"){
+            input = input.replace("k", "1000");
+        } else {
+            input = input.replace("k", "000");
+        }
 
         if(input === ""){
             setValue(0);

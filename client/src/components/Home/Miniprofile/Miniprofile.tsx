@@ -3,17 +3,22 @@ import './Miniprofile.css'
 import Api from "../../../api";
 import Icon from "../../../Icon";
 import { useNavigate } from 'react-router-dom';
+import useWallet from '../../../hooks/useWallet';
 
 interface MiniprofileProps {
     userData: Api.UserData;
+    setBalancePopup: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export default function Miniprofile(props: MiniprofileProps){
 
     const navigate = useNavigate();
 
+    const { setBalance } = useWallet();
+
     async function handleLogout(){
         await Api.signOut();
+        setBalance(0);
         navigate("/auth")
     }
 
@@ -34,7 +39,7 @@ export default function Miniprofile(props: MiniprofileProps){
                 </div>
             </div>
             <div className="action">
-                <button className="primary"><Icon.Plus/> Add funds</button>
+                <button className="primary" onClick={() => props.setBalancePopup(true)}><Icon.Plus/> Add funds</button>
                 <button className="secondary" onClick={handleLogout}><Icon.Exit />Sign out</button>
             </div>
         </section>

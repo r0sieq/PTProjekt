@@ -12,6 +12,8 @@ interface GamemodeProps extends HTMLAttributes<HTMLDivElement> {
 
 export default function Gamemode(props: GamemodeProps){
 
+    const infoURL = props.infoURL ?? '/rules' + props.playURL;
+
     return (
         <section className="gamemode" data-mode={props["data-mode"]}>
             <div className="wrapper">
@@ -21,7 +23,7 @@ export default function Gamemode(props: GamemodeProps){
                     <Link to={props.playURL ?? "/"} className="primary">
                         Play
                     </Link>
-                    <Link to={props.infoURL ?? "/"} className="secondary">
+                    <Link to={infoURL ?? "/"} className="secondary">
                         More
                     </Link>
                 </div>

@@ -1,6 +1,6 @@
 main.auth {
     flex-grow: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: #111;
     display: flex;
     align-items: center;
@@ -89,4 +89,53 @@ main.auth .form-error {
     color: darkred;
     font-size: 18px;
     margin-bottom: 20px;
+}
+
+main.auth .checkbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+main.auth .checkbox-container span {
+    width: fit-content;
+}
+
+.custom-checkbox {
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkbox-box {
+    width: 1em;
+    height: 1em;
+    aspect-ratio: 1/1;
+    display: block;
+    margin-right: 8px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.custom-checkbox input:checked + .checkbox-box {
+    background-color: green;
+    border-color: green;
+}
+
+.custom-checkbox input:checked + .checkbox-box::after {
+    content: "✔";
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    height: 100%;
 }

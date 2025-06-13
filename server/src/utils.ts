@@ -1,4 +1,21 @@
 import * as admin from 'firebase-admin';
+import { RouletteBetName } from './types';
+
+export function validateName(name: string): boolean {
+    return /^[A-Za-zÀ-ÿ\s'-]{2,20}$/.test(name);
+}
+
+export function validateEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+export function validatePassword(password: string): boolean {
+    const hasMinLength = password.length >= 8;
+    const hasLower = /[a-z]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    return hasMinLength && hasLower && hasUpper && hasNumber;
+}
 
 export async function registerUser(email: string, password: string, displayName: string){
     const user = await admin.auth().createUser({
@@ -12,10 +29,10 @@ export async function registerUser(email: string, password: string, displayName:
     const userData = {
         uid,
         displayName,
-        balance: 0
+        balance: 500
     }
 
-    await admin.firestore().collection("casino/users").doc(uid).set(userData);
+    await admin.firestore().collection("users").doc(uid).set(userData);
 
     return userData;
 }
@@ -170,4 +187,71 @@ export function generateRidethebusGame(){
     const cards = selected.map(([color, figure]) => `${color}-${figure}`);
 
     return { cards, answers };
+}
+
+export function getRouletteNumber(){
+    return Math.floor(Math.random() * 37);
+}
+
+export const rouletteMultipliersMap: Record<RouletteBetName, {check(n: number): boolean, readonly multiplier: number}> = {
+    onRed: {
+        multiplier: 2,
+        check(n) {
+            return [32, 19, 21, 25, 34, 27, 36, 30, 23, 5, 16, 1, 14, 9, 18, 7, 12, 3].includes(n);
+        },
+    },
+    onBlack: {
+        multiplier: 2,
+        check(n) {
+            return [15, 4, 2, 17, 6, 13, 11, 8, 10, 24, 33, 20, 31, 22, 29, 28, 35, 26].includes(n)
+        },
+    },
+    onGreen: {
+        multiplier: 14,
+        check(n) {
+            return n === 0;
+        },
+    },
+    onEven: {
+        multiplier: 2,
+        check(n) {
+            return n !== 0 && n % 2 === 0;
+        },
+    },
+    onOdd: {
+        multiplier: 2,
+        check(n) {
+            return n % 2 !== 0;
+        },
+    },
+    onSt12: {
+        multiplier: 3,
+        check(n) {
+            return n >= 1 && n <= 12
+        },
+    },
+    onNd12: {
+        multiplier: 3,
+        check(n){
+            return n >= 13 && n <= 24
+        }
+    },
+    onRd12: {
+        multiplier: 3, 
+        check(n) {
+            return n <= 25 && n <= 36
+        },
+    },
+    onSt18: {
+        multiplier: 2,
+        check(n) {
+            return n >= 1 && n <= 18
+        },
+    },
+    onNd18: {
+        multiplier: 2,
+        check(n){
+            return n >= 19 && n <= 36
+        }
+    }
 }
