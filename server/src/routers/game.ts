@@ -32,4 +32,7 @@ router.use("/ridethebus", ridethebusRouter);
 import rouletteRouter from './games/roulette';
 router.use("/roulette", rouletteRouter);
 
+import slotmachineRouter from './games/slotmachine';
+router.use("/slotmachines", slotmachineRouter)
+
 export default router;

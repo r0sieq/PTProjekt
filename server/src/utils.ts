@@ -255,3 +255,68 @@ export const rouletteMultipliersMap: Record<RouletteBetName, {check(n: number): 
         }
     }
 }
+
+export interface SlotSymbolDefinition {
+    id: number;
+    symbol: string;
+    weight: number;
+    multiplier: number;
+};
+
+const SLOT_SYMBOLS: SlotSymbolDefinition[] = [
+    { id: 0, symbol: "🍒", weight: 30, multiplier: 2 },
+    { id: 1, symbol: "🍋", weight: 25, multiplier: 3 },
+    { id: 2, symbol: "🍇", weight: 20, multiplier: 5 },
+    { id: 3, symbol: "🍉", weight: 15, multiplier: 8 },
+    { id: 4, symbol: "💎", weight: 7, multiplier: 15 },
+    { id: 5, symbol: "🔥", weight: 2, multiplier: 30 },
+    { id: 6, symbol: "💀", weight: 1, multiplier: 100 }
+];
+
+const SLOT_SYMBOLS_WEIGHT = SLOT_SYMBOLS.reduce((sum, s) => sum + s.weight, 0);
+
+function weightedRandomSymbolId(){
+    const rand = Math.random() * SLOT_SYMBOLS_WEIGHT;
+    let cumulative = 0;
+    for(const sym of SLOT_SYMBOLS){
+        cumulative += sym.weight;
+        if(rand < cumulative) return sym.id;
+    }
+
+    return SLOT_SYMBOLS[0].id;
+}
+
+export interface SlotSpinResult {
+    symbols: number[],
+    multiplier: number,
+    winAmount: number
+}
+
+export function spinSlotMachine(stake: number) {
+    const symbols = [
+        weightedRandomSymbolId(),
+        weightedRandomSymbolId(),
+        weightedRandomSymbolId()
+    ]
+
+    let multiplier = 0;
+
+    if(symbols[0] === symbols[1] && symbols[1] === symbols[2]){
+        const matched = SLOT_SYMBOLS.find(s => s.id === symbols[0]);
+        multiplier = matched?.multiplier || 0;
+    }
+
+    //bonus
+    const combo = symbols.join(",");
+    if(combo === "4,4,5") multiplier = 20;
+    if(combo === "6,5,6") multiplier = 50;
+
+    const prize = stake * multiplier;
+
+    return {
+        symbols,
+        multiplier,
+        prize
+    }
+
+}

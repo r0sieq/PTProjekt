@@ -1,0 +1,34 @@
+div.drums {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+main.slots .slots-toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+main.slots .slots-toolbar button[type="submit"]{
+    padding-inline: 80px;
+    cursor: pointer;
+}
+
+main.slots .slots-toolbar button[type="submit"]:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+main.slots .slots-toolbar .stake-selector {
+    margin-top: 50px;
+}
+
+main.slots .slots-toolbar .stake {
+    opacity: .8;
+    margin-top: 5px;
+}

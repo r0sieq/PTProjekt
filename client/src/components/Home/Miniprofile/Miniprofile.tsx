@@ -14,7 +14,7 @@ export default function Miniprofile(props: MiniprofileProps){
 
     const navigate = useNavigate();
 
-    const { setBalance } = useWallet();
+    const { balance, setBalance } = useWallet();
 
     async function handleLogout(){
         await Api.signOut();
@@ -34,7 +34,7 @@ export default function Miniprofile(props: MiniprofileProps){
                         {props.userData.displayName}
                     </div>
                     <div className="balance">
-                        Balance: <span>{props.userData.balance.toFixed(2)}</span> <Icon.Token />
+                        Balance: <span>{(balance ?? 0).toFixed(2)}</span> <Icon.Token />
                     </div>
                 </div>
             </div>

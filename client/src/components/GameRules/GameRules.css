@@ -10,6 +10,8 @@ main.rules .content {
 
 main.rules .content p {
     padding-inline: 20px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 main.rules .content ol {

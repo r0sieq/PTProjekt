@@ -170,6 +170,16 @@ namespace Api {
         }
 
     }
+
+    export namespace SlotMachine {
+        export interface GameState {
+            status: "won" | "lost",
+            gameId: string,
+            stake: number,
+            gameBalance: number,
+            symbols: number[]
+        }
+    }
 }
 
 export default Api;

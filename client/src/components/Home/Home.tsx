@@ -45,7 +45,7 @@ export default function Home(props: HomeProps){
                     <Gamemode title='Roulette' data-mode='roulette' playURL='/roulette'>
                         Roulette is a casino game which was likely developed from the Italian game Biribi. In the game, a player may choose to place a bet on a single number, various groupings of numbers, the color red or black, whether the number is odd or even, or if the number is high or low.
                     </Gamemode>
-                    <Gamemode title='Slot Machines' data-mode='slotmachines'>
+                    <Gamemode title='Slot Machines' data-mode='slotmachines' playURL='/slots'>
                         One-Armed Bandit is a classic casino slot machine game. Players spin the reels by pulling a lever or pressing a button, aiming to match symbols across paylines. Wins depend on symbol combinations and payouts vary by game.
                     </Gamemode>
                 </div>

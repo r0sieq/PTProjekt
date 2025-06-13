@@ -13,6 +13,8 @@ import BalancePopup from './components/BalancePopup/BalancePopup';
 import RouletteRules from './components/GameRules/RouletteRules';
 import RideTheBusRules from './components/GameRules/RidethebusRules';
 import MinesweeperRules from './components/GameRules/MinesweeperRules';
+import SlotMachine from './components/SlotMachine/SlotMachine';
+import SlotMachineRules from './components/GameRules/SlotmachineRules';
 
 export default function App(){
 
@@ -28,9 +30,11 @@ export default function App(){
                 <Route path='/ridethebus/*' element={<RideTheBus />}/>
                 <Route path='/minesweeper/*' element={<Minesweeper />}/>
                 <Route path='/roulette/*' element={<Roulette />}/>
+                <Route path='/slots' element={<SlotMachine />}/>
                 <Route path='/rules/roulette' element={<RouletteRules />}/>
                 <Route path='/rules/ridethebus' element={<RideTheBusRules />}/>
                 <Route path='/rules/minesweeper' element={<MinesweeperRules />}/>
+                <Route path='/rules/slots' element={<SlotMachineRules />}/>
             </Routes>
             <GlobalErrors />
             { balancePopup && <BalancePopup setBalancePopup={setBalancePopup}/> }
